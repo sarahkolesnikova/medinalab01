@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medina Lab</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Kokoro', Arial, sans-serif; /* Garanta que a fonte Kokoro esteja disponível ou forneça uma alternativa */
+            background: white;
+            overflow: hidden; /* Para conter elementos posicionados absolutamente */
+        }
+
+        .page-container {
+            width: 100%;
+            height: 100%;
+            position: relative; /* Para posicionamento absoluto dos filhos */
+            overflow: hidden;
+        }
+
+        .mission-image-background {
+            width: 634px;
+            height: 476px;
+            left: 130px;
+            top: 88px;
+            position: absolute;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 0; /* Resetando border-radius se houver */
+            z-index: 0; /* Garante que esteja atrás de outro conteúdo */
+        }
+
+        .profile-card-container {
+            width: 260px;
+            height: 703px;
+            left: 974px;
+            top: 230px;
+            position: absolute;
+            background: #F5F5F5;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 24px;
+            border: 1px #DFE1B7 solid;
+            overflow: hidden; /* Corta os cantos arredondados da imagem */
+        }
+
+        .profile-image {
+            width: 353px;
+            height: 265px;
+            left: -46.5px; /* (937 - 974) + (353 - 260) / 2 */
+            top: 22px; /* 252 - 230 */
+            position: absolute;
+            border-radius: 70px;
+            object-fit: cover; /* Garante que a imagem cubra a área */
+        }
+
+        .logo {
+            width: 230px;
+            height: 230px;
+            left: 151px;
+            top: 12px;
+            position: absolute;
+            border-radius: 64px;
+        }
+
+        .nav-home {
+            width: 94px;
+            height: 35px;
+            left: 477px;
+            top: 137px;
+            position: absolute;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            color: #6A09A2;
+            font-size: 24px;
+            font-family: Kokoro;
+            font-weight: 400;
+            text-align: center;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-research {
+            width: 110px;
+            height: 35px;
+            left: 604px;
+            top: 137px;
+            position: absolute;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            color: #52894D;
+            font-size: 24px;
+            font-family: Kokoro;
+            font-weight: 400;
+            text-align: center;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-join-us {
+            width: 111px;
+            height: 35px;
+            left: 1194px;
+            top: 137px;
+            position: absolute;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            color: #52894D;
+            font-size: 24px;
+            font-family: Kokoro;
+            font-weight: 400;
+            text-align: center;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-our-team {
+            width: 119px; /* Largura ajustada para caber o conteúdo */
+            height: 35px;
+            left: 747px;
+            top: 137px;
+            position: absolute;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            color: #6A09A2;
+            font-size: 24px;
+            font-family: Kokoro;
+            font-weight: 400;
+            text-align: center;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-awards {
+            width: 98px;
+            height: 35px;
+            left: 1063px;
+            top: 137px;
+            position: absolute;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            color: #6A09A2;
+            font-size: 24px;
+            font-family: Kokoro;
+            font-weight: 400;
+            text-align: center;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-publications {
+            width: 140px;
+            height: 35px;
+            left: 890px;
+            top: 137px;
+            position: absolute;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            color: #52894D;
+            font-size: 24px;
+            font-family: Kokoro;
+            font-weight: 400;
+            text-align: center;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .header-divider {
+            width: 1160px;
+            height: 0px;
+            left: 145px;
+            top: 212px;
+            position: absolute;
+            border-bottom: 2px black solid; /* Usando border-bottom para uma linha sólida */
+        }
+
+        .profile-vertical-divider {
+            width: 206px;
+            height: 0px;
+            left: 985px;
+            top: 517px;
+            position: absolute;
+            border-bottom: 2px #DFE1B7 solid;
+        }
+
+        .profile-text-container {
+            width: 218px;
+            height: 290px;
+            left: 997px;
+            top: 619px;
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left; /* Alinha o texto à esquerda */
+        }
+
+        .profile-text-container span {
+            color: black;
+            font-size: 16px;
+            font-family: Kokoro;
+            font-weight: 400;
+            line-height: 1.3;
+            word-wrap: break-word;
+        }
+
+        .footer-container {
+            width: 1160px;
+            height: 71px;
+            left: 145px;
+            top: 941px;
+            position: absolute;
+        }
+
+        .footer-icon {
+            width: 71px;
+            height: 71px;
+            left: 478px;
+            top: 0px;
+            position: absolute;
+            border-radius: 64px;
+        }
+
+        .footer-divider {
+            width: 1160px;
+            height: 0px;
+            left: 0px;
+            top: 4px;
+            position: absolute;
+            border-bottom: 2px black solid;
+        }
+
+        .copyright {
+            width: auto; /* Ajusta a largura ao conteúdo */
+            height: 47px;
+            left: 561px;
+            top: 12px;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: black;
+            font-size: 12px;
+            font-family: Kokoro;
+            font-weight: 400;
+            white-space: nowrap; /* Impede a quebra de linha do texto */
+        }
+
+        .social-icon {
+            width: 18px;
+            height: 18px;
+            left: 633px;
+            top: 27px;
+            position: absolute;
+        }
+
+        .mission-text-container {
+            width: 774px;
+            left: 130px;
+            top: 628px;
+            position: absolute;
+            color: black;
+            font-size: 15px;
+            font-family: Kokoro;
+            font-weight: 400;
+            line-height: 27px;
+            word-wrap: break-word;
+        }
+
+        .mission-title {
+            width: auto; /* Ajusta a largura ao conteúdo */
+            height: 50px;
+            left: 130px;
+            top: 578px;
+            position: absolute;
+            color: black;
+            font-size: 32px;
+            font-family: Kokoro;
+            font-weight: 400;
+            white-space: nowrap; /* Impede a quebra de linha do texto */
+        }
+
+        .profile-title {
+            width: auto; /* Ajusta a largura ao conteúdo */
+            height: 44px;
+            left: 994px;
+            top: 551px;
+            position: absolute;
+            color: black;
+            font-size: 24px;
+            font-family: Kokoro;
+            font-weight: 400;
+            white-space: nowrap; /* Impede a quebra de linha do texto */
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <img class="mission-image-background" src="https://placehold.co/634x476" alt="Imagem de Fundo" />
+        <div class="profile-card-container">
+            <img class="profile-image" src="https://placehold.co/353x265" alt="Tiago Medina" />
+        </div>
+        <img class="logo" src="https://placehold.co/230x230" alt="Logo" />
+        <div class="nav-home">Home</div>
+        <div class="nav-research">Research</div>
+        <div class="nav-our-team">Our Team</div>
+        <div class="nav-publications">Publications</div>
+        <div class="nav-awards">Awards</div>
+        <div class="nav-join-us">Join Us</div>
+        <div class="header-divider"></div>
+        <div class="profile-vertical-divider"></div>
+        <div class="profile-text-container">
+            <span>Group Leader – Translational Immune-Oncology<br/>Assistant Professor, Department of Molecular Medicine<br/>University of Southern Denmark – Odense, Denmark<br/><br/>📧 m<a href="mailto:edina@health.sdu.dk" style="text-decoration: underline;">edina@health.sdu.dk<br/></a><br/></span>
+        </div>
+        <div class="footer-container">
+            <img class="footer-icon" src="https://placehold.co/71x71" alt="Ícone do Rodapé" />
+            <div class="footer-divider"></div>
+            <div class="copyright">© 2025 All Rights Reserved</div>
+            <img class="social-icon" src="https://placehold.co/18x18" alt="Ícone Social" />
+        </div>
+        <div class="mission-text-container">
+            Our research group is committed to advancing precision oncology through cutting-edge immunotherapy. By integrating clinical insights with experimental research, we aim to identify biomarkers that predict treatment response and to uncover novel targets for therapeutic intervention.<br/>We investigate a broad range of immunotherapeutic approaches, including immune checkpoint blockade and adoptive cell therapies such as CAR-T and tumor-infiltrating lymphocytes (TILs). Our mission is to enhance treatment precision—helping clinicians match the right therapy to the right patient, while also driving innovation to improve the therapies already in use.<br/>Rooted in a multidisciplinary environment and closely linked to graduate education, our group fosters collaboration across basic, translational, and clinical research to shape the future of cancer care.<br/>
+        </div>
+        <div class="mission-title">Mission</div>
+        <div class="profile-title">Tiago Medina, PhD</div>
+    </div>
+</body>
+</html>
