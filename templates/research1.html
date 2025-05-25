@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Reestruturada</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Kokoro, sans-serif; /* Fonte Kokoro como principal, fallback para sans-serif */
+        }
+
+        .page-container {
+            width: 100%;
+            height: 100%; /* Mantido do original. Se o conteúdo exceder, será cortado devido ao overflow: hidden. */
+            position: relative;
+            background: white;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* Cabeçalho e Logo */
+        .site-header {
+            position: relative;
+        }
+
+        .logo {
+            width: 230px;
+            height: 230px;
+            left: 136px;
+            top: 0px;
+            position: absolute;
+            border-radius: 64px;
+        }
+
+        /* Navegação */
+        .navigation {
+            /* Contêiner lógico para os links */
+        }
+
+        .navigation {
+            /* O contêiner de navegação em si não precisa de posicionamento se os links são posicionados individualmente */
+        }
+
+        .nav-item {
+            position: absolute;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 400;
+            word-wrap: break-word;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            text-decoration: none;
+        }
+
+        .nav-home { width: 94px; left: 462px; top: 125px; color: #6A09A2; }
+        .nav-research { width: 110px; left: 589px; top: 125px; color: #52894D; }
+        .nav-our-team { width: 126px; left: 730px; top: 125px; color: #6A09A2; }
+        .nav-publications { width: 140px; left: 875px; top: 125px; color: #52894D; }
+        .nav-awards { width: 98px; left: 1048px; top: 125px; color: #6A09A2; }
+        .nav-join-us { width: 111px; left: 1179px; top: 125px; color: #52894D; }
+
+        /* Linha Separadora do Cabeçalho */
+        .separator-line-header {
+            width: 1160px;
+            height: 0px;
+            left: 130px;
+            top: 200px;
+            position: absolute;
+            outline: 2px black solid;
+            outline-offset: -1px;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            position: relative;
+        }
+
+        .content-card {
+            position: absolute;
+            height: 1403px; /* Nova altura dos cards */
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 35px;
+            box-sizing: border-box;
+        }
+
+        .content-card-1 {
+            width: 583px;
+            left: 130px;
+            top: 236px;
+            background: #FFF2FF;
+            border: 1px #CEC6CE solid;
+        }
+
+        .content-card-2 {
+            width: 583px;
+            left: 751px;
+            top: 236px;
+            background: #D6E6F0;
+            border: 1px #C3CFD6 solid;
+        }
+
+        .title-wrapper {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 140.90px;
+            top: 0px; /* Título no topo do card */
+        }
+        .title-wrapper-1 {
+            width: 457.25px;
+            left: 62px;
+        }
+        .title-wrapper-2 {
+            width: 545.28px;
+            left: 24.85px;
+        }
+
+        .content-title {
+            font-size: 24px;
+            font-family: Kokoro, sans-serif;
+            font-weight: 400;
+            word-wrap: break-word;
+            margin: 0;
+        }
+        .content-title.title-card-1 { color: #6A09A2; }
+        .content-title.title-card-2 { color: #423B76; }
+
+        .title-link {
+            color: inherit; /* Faz o link herdar a cor do elemento pai (o h2, que já tem a cor definida por .title-card-1) */
+            text-decoration: none; /* Remove o sublinhado padrão dos links */
+        }
+
+        .title-link:hover,
+        .title-link:focus {
+            text-decoration: underline; /* Opcional: adiciona sublinhado no hover/focus para melhor usabilidade */
+        /* Você pode adicionar outros estilos de hover aqui, se desejar */
+        }
+
+        .content-image {
+            position: absolute;
+        }
+        .content-image-1 {
+            width: 510px;
+            height: 505px;
+            left: 36px;
+            top: 127px; /* Posição da imagem dentro do card 1 */
+            border-radius: 57px;
+        }
+        .content-image-2 {
+            width: 494px;
+            height: 513px;
+            left: 48px;
+            top: 140px; /* Posição da imagem dentro do card 2 */
+            border-radius: 41px;
+        }
+
+        .text-wrapper {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        .text-wrapper-1 {
+            width: 510px;
+            height: 699.08px;
+            left: 36px;
+            top: 666.21px; /* Posição do texto abaixo da imagem no card 1 */
+        }
+        .text-wrapper-2 {
+            width: 501.19px;
+            height: 679.70px;
+            left: 40.39px;
+            top: 694.25px; /* Posição do texto abaixo da imagem no card 2 */
+        }
+
+        .content-text {
+            font-size: 18px;
+            font-family: Kokoro, sans-serif;
+            font-weight: 400;
+            word-wrap: break-word;
+            color: black;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Rodapé */
+        .site-footer {
+            width: 1160px;
+            height: 71px;
+            left: 127px;
+            top: 1731px; /* Nova posição do rodapé */
+            position: absolute;
+        }
+
+        .footer-separator {
+            width: 100%;
+            height: 0px;
+            left: 0px;
+            top: 4px;
+            position: absolute;
+            outline: 2px black solid;
+            outline-offset: -1px;
+        }
+
+        .footer-logo {
+            width: 71px;
+            height: 71px;
+            left: 478px;
+            top: 10px;
+            position: absolute;
+            border-radius: 64px;
+        }
+
+        .copyright-wrapper {
+            position: absolute;
+            width: 57px;
+            height: 47px;
+            left: 561px;
+            top: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .copyright-text {
+            font-size: 12px;
+            font-family: Kokoro, sans-serif;
+            font-weight: 400;
+            word-wrap: break-word;
+            color: black;
+            margin: 0;
+        }
+
+        .footer-icon {
+            width: 18px;
+            height: 18px;
+            left: 633px;
+            top: 27px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header class="site-header">
+            <img class="logo" src="../static/logo.jpg" alt="Logotipo da Empresa" />
+            <nav class="navigation">
+                <a href="{{ url_for('home') }}" class="nav-item nav-home">Home</a>
+                <a href="{{ url_for('research') }}" class="nav-item nav-research">Research</a>
+                <a href="{{ url_for('team') }}" class="nav-item nav-our-team">Our Team</a>
+                <a href="{{ url_for('publications') }}" class="nav-item nav-publications">Publications</a>
+                <a href="{{ url_for('awards') }}" class="nav-item nav-awards">Awards</a>
+                <a href="{{ url_for('join_us') }}" class="nav-item nav-join-us">Join Us</a>
+            </nav>
+        </header>
+
+        <div class="separator-line-header"></div>
+
+        <main class="main-content">
+            <section class="content-card content-card-1">
+            <div class="title-wrapper title-wrapper-1">
+            <h2 class="content-title title-card-1">
+                <a href="{{ url_for('act') }}" class="title-link">Adoptive Cell Therapies and Epigenetic Modulation</a>
+            </h2>
+            </div>
+            <img class="content-image content-image-1" src="../static/terapia adotivaa.png" alt="Imagem sobre Terapias Celulares Adotivas" />
+            <div class="text-wrapper text-wrapper-1">
+            <p class="content-text">This research line focuses on enhancing adoptive cell therapies (ACTs), such as chimeric antigen receptor T cells (CAR-T) and tumor-infiltrating lymphocytes (TILs), through the modulation of epigenetic mechanisms. These advanced therapeutic strategies utilize the patient’s own immune cells, which are expanded or genetically engineered ex vivo and reinfused to target and eliminate cancer cells.<br/><br/>Our work aims to investigate how epigenetic regulation—heritable changes in gene expression that do not involve alterations to the DNA sequence—can be leveraged to improve the functionality, persistence, and antitumor efficacy of adoptive therapies. By modulating transcriptional pro grams, we seek to overcome tumor-induced immunosuppression and cellular exhaustion, which are major barriers to ACT success in solid tumors.<br/><br/>This research involves both molecular profiling and functional assays to identify key epigenetic targets that enhance the therapeutic potential of immune cells. Ultimately, our goal is to integrate epigenetic modulation into the design of next-generation adoptive immunotherapies, contributing to more durable and effective treatment options for cancer patients.<br/></p>
+            </div>
+        </section>
+        </main>
+            <section class="content-card content-card-2">
+                <div class="title-wrapper title-wrapper-2">
+                <h2 class="content-title title-card-2">
+                    <a href="{{ url_for('tls') }}" class="title-link">Tertiary Lymphoid Structures and the Tumor Immune Landscape</a>
+                </h2>
+                </div>
+                <img class="content-image content-image-2" src="../static/pesquisa2.jpg" alt="Imagem sobre Estruturas Linfoides Terciárias" />
+                <div class="text-wrapper text-wrapper-2">
+                    <p class="content-text">This research line investigates the spatial organization of immune cells within the tumor microenvironment, with a particular focus on tertiary lymphoid structures (TLS). These ectopic lymphoid aggregates resemble secondary lymphoid organs and are associated with improved immune responses in several cancer types.<br/><br/>We aim to understand how immune cells coordinate locally to mount effective antitumor responses and how the presence, composition, and maturation of TLS correlate with patient outcomes, particularly in the context of immunotherapy. By characterizing these structures in solid tumors, we seek to identify immunological and molecular signatures that can serve as predictive biomarkers for treatment response.<br/><br/>Our studies combine virtual microscopy, immunohistochemistry, virtual microscopy, and spatial analysis to map immune infiltration and TLS formation in patient samples. These insights contribute to a better understanding of tumor-immune interactions and support the development of therapeutic strategies that promote TLS formation or enhance their function, potentially improving the efficacy of immune checkpoint inhibitors and other immunotherapies.architecture of their tumors.<br/></p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-separator"></div>
+            <img class="footer-logo" src="../static/icone_MedinaLab.png" alt="Logotipo do Rodapé" />
+            <div class="copyright-wrapper">
+                 <p class="copyright-text">© 2025 All Rights Reserved </p>
+            </div>
+            <img class="footer-icon" src="../static/icon-instagram.png" alt="Ícone" />
+        </footer>
+    </div>
+</body>
+</html>
