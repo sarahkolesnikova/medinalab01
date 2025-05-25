@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Kokoro, sans-serif;
+      background: white;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    header, main, footer {
+      position: relative;
+      width: 100%;
+    }
+    .nav-item {
+      position: absolute;
+      font-size: 24px;
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="../static/logo.jpg" alt="Logo" style="width: 230px; height: 230px; position: absolute; top: 12px; left: 151px; border-radius: 64px;" />
+    <a href="{{ url_for('home') }}" class="nav-item" style="left: 477px; top: 137px; color: #6A09A2; text-decoration: none;">Home</a>
+    <a href="{{ url_for('research') }}" class="nav-item" style="left: 604px; top: 137px; color: #52894D; text-decoration: none;">Research</a>
+    <a href="{{ url_for('team') }}" class="nav-item" style="left: 747px; top: 137px; color: #6A09A2; text-decoration: none;">Our Team</a>
+    <a href="{{ url_for('publications') }}" class="nav-item" style="left: 890px; top: 137px; color: #52894D; text-decoration: none;">Publications</a>
+    <a href="{{ url_for('awards') }}" class="nav-item" style="left: 1063px; top: 137px; color: #6A09A2; text-decoration: none;">Awards</a>
+    <a href="{{ url_for('join_us') }}" class="nav-item" style="left: 1194px; top: 137px; color: #52894D; text-decoration: none;">Join Us</a>
+  <main>
+    <!-- Imagens e Painéis -->
+    <img src="../static/grupo.png" style="width: 760.8px; height: 444px; position: absolute; top: 212px; left: 130px;" />
+    
+    <div style="width: 260px; height: 703px; position: absolute; top: 230px; left: 974px; background: #F5F5F5; border-radius: 24px; border: 1px solid #DFE1B7; box-shadow: 0px 4px 4px rgba(0,0,0,0.25);"></div>
+    
+    <img src="../static/tiago.png" style="width: 353.33px; height: 265px; position: absolute; top: 252px; left: 937px; border-radius: 70px;" />
+
+    <!-- Texto lateral -->
+    <div style="position: absolute; top: 551px; left: 994px; font-size: 24px; font-weight: 400;">Tiago Medina, PhD</div>
+    <div style="position: absolute; top: 619px; left: 997px; width: 218px; height: 290px; display: flex; flex-direction: column; justify-content: center; font-size: 16px;">
+      <span>Group Leader – Translational Immune-Oncology<br>
+      Assistant Professor, Department of Molecular Medicine<br>
+      University of Southern Denmark – Odense, Denmark<br><br>
+      📧 <a href="mailto:medina@health.sdu.dk" style="text-decoration: underline;">medina@health.sdu.dk</a></span>
+    </div>
+
+    <!-- Missão -->
+    <div style="position: absolute; top: 677px; left: 130px; font-size: 32px; font-weight: 400;">Mission</div>
+    <div style="position: absolute; top: 727px; left: 130px; width: 774px; font-size: 15px; line-height: 27px;">
+      Our research group is committed to advancing precision oncology through cutting-edge immunotherapy. By integrating clinical insights with experimental research, we aim to identify biomarkers that predict treatment response and to uncover novel targets for therapeutic intervention.<br><br>
+      We investigate a broad range of immunotherapeutic approaches, including immune checkpoint blockade and adoptive cell therapies such as CAR-T and tumor-infiltrating lymphocytes (TILs). Our mission is to enhance treatment precision—helping clinicians match the right therapy to the right patient, while also driving innovation to improve the therapies already in use.<br><br>
+      Rooted in a multidisciplinary environment and closely linked to graduate education, our group fosters collaboration across basic, translational, and clinical research to shape the future of cancer care.
+    </div>
+
+    <!-- Linhas decorativas -->
+    <div style="position: absolute; top: 517px; left: 985px; width: 206px; height: 0; outline: 2px solid #DFE1B7;"></div>
+  </main>
+
+  <footer>
+    <margin-top: 20px;>
+    <div style="position: absolute; top: 1070px; left: 152px; width: 1160px; height: 71px;">
+      <img src="../static/icone_MedinaLab.png" style="width: 71px; height: 71px; position: absolute; left: 478px; border-radius: 64px;" />
+      <div style="position: absolute; top: 4px; left: 0px; width: 1160px; height: 0px; outline: 2px solid black;"></div>
+      <div style="position: absolute; top: 12px; left: 561px; width: 57px; height: 47px; text-align: center; font-size: 12px;">© 2025 All Rights Reserved</div>
+      <img src="../static/icon-instagram.png" style="width: 18px; height: 18px; position: absolute; top: 27px; left: 633px;" />
+    </div>
+  </footer>
+</body>
+</html>
